@@ -1,8 +1,11 @@
 import { AppState } from "../reducer";
+import {put, select, call, takeEvery} from 'redux-saga/effects'
+
 import { ThunkAction } from "redux-thunk";
 import { AnyAction } from 'redux';
 import { BASE_URL, setLists } from "../actions"
-import { ToDo } from '../ToDos.redux/ToDos.types'
+import { ToDo, CREATE_TO_DO, CreateToDoActionTypes } from '../ToDos.redux/ToDos.types'
+import { ListType } from '../Lists.redux/Lists.types'
 
 
 export const handleDeleteToDo = (toDo: ToDo): ThunkAction<Promise<void>, AppState, null, AnyAction> => async(dispatch, getState) =>{
@@ -86,8 +89,63 @@ export const handleCreateToDo = (toDo: ToDo): ThunkAction<Promise<void>, AppStat
     }
 }
 
+export const createToDo = (toDo: ToDo) => {
+    return{ type: CREATE_TO_DO, payload: toDo}
+}
 
 //handleCreateToDo Saga
+//this is the watch function that gets added to the rootSaga
+export function *watchCreateToDo(){
+    yield takeEvery(CREATE_TO_DO, hCreateToDo)
+}
 
+//this is a helper function argument to pull a piece of the current state
+export const getLists = (state: AppState) => state.lists
+
+function *hCreateToDo (action: CreateToDoActionTypes){
+    //this gets the current lists from state
+    const lists: Array<ListType> =  yield select(getLists)
+
+    //the action is passed as a default object to the function that is called in the watch
+    const toDo = action.payload
+    const token = localStorage.getItem('ToDo-token')
+    const options = {
+        method: "POST",
+        headers:{
+            "Content-Type": "application/json; charset=utf-8",
+            Accept: "application/json",
+            Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify({ to_do: toDo })
+    }
+    
+    try{
+        //this handles the fetch as a raw promise. There is no async await syntax support for sagas
+        const res = yield call( fetch, BASE_URL+ '/to_dos', options)
+        //since json is another async call you manage the response the same as the fetch call 
+        const resObj = yield call([res, 'json'])
+        if(resObj.success){
+            const newToDo = resObj.toDo
+            const currentLists = lists
+            const updatedLists = currentLists.map( list => {
+                if (list.id === newToDo.listId){
+                    list.toDos.push(newToDo)
+                    return list
+                }else{
+                    return list
+                }
+            })
+            //put is the dispatch equivalent 'setLists is a plain action object
+            yield put(setLists(updatedLists))
+        }
+        if(!resObj.success){
+            //dispatch error messages 
+        }
+    }
+    catch(err){
+        console.error("Handle Create ToDo: ", err)
+    } 
+
+}
 
 //handleDeleteToDo Saga

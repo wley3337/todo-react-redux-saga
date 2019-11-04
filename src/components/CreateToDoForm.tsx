@@ -10,10 +10,11 @@ interface CreateToDoFormProps{
     listId: number
     //actions
     handleCreateToDo: (todo:ToDo) => void
+    createToDo: (toDo: ToDo) => void
     
 }
 
-const CreateToDoForm: React.FC<CreateToDoFormProps> = ({ handleCreateToDo, listId }) =>{
+const CreateToDoForm: React.FC<CreateToDoFormProps> = ({ handleCreateToDo, listId, createToDo }) =>{
     const initialNewToDoState: ToDo = {
         title: "",
         description: "",
@@ -23,7 +24,7 @@ const CreateToDoForm: React.FC<CreateToDoFormProps> = ({ handleCreateToDo, listI
 
     const [newToDo, setNewToDo] = useState(initialNewToDoState)
     return(
-        <form onSubmit ={ e => { e.preventDefault(); handleCreateToDo(newToDo)}}>
+        <form onSubmit ={ e => { e.preventDefault(); createToDo(newToDo)}}>
             <input 
                 type="text"
                 value={newToDo.title}

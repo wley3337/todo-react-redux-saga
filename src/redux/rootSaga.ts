@@ -1,13 +1,15 @@
 import { all } from 'redux-saga/effects';
+import { watchCreateToDo } from './actions';
 
 
 function* helloSaga(){
-    console.log('hello')
+    yield console.log('hello')
 }
 
 
 export default function* rootSaga(){
     yield all([
         helloSaga(),
+        watchCreateToDo(),
     ])
 }
