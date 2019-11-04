@@ -18,7 +18,7 @@ const CreateToDoForm: React.FC<CreateToDoFormProps> = ({ handleCreateToDo, listI
         title: "",
         description: "",
         due: moment(Date.now()).format('YYYY/MM/DD'),
-        listId: listId 
+        listId: listId
     } 
 
     const [newToDo, setNewToDo] = useState(initialNewToDoState)

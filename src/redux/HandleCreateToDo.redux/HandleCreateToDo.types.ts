@@ -1,4 +1,4 @@
-import { ToDo } from "../ToDos.redux/ToDos.types"
+import { ToDo, deleteToDoAction } from "../ToDos.redux/ToDos.types"
 
 export const CREATE_TO_DO:string = "CREATE_TO_DO"
 
@@ -7,4 +7,4 @@ export interface CreateToDoAction{
     payload: ToDo
 }
 
-export type CreateToDoActionTypes = CreateToDoAction
+export type CreateToDoActionTypes = CreateToDoAction | deleteToDoAction
