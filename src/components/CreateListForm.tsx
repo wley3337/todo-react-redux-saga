@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../redux/actions';
-import { CreateListFormType } from '../redux/HandleCreateList.redux/HandleCreateList.types';
+import { CreateListFormType } from '../redux/Lists.redux/Lists.types';
 import * as css from './CreateListForm.css';
 
 interface CreateListFormProps{
