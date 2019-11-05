@@ -6,12 +6,12 @@ import { RouteComponentProps } from 'react-router'
 
 interface HandleAutoLoginProps extends RouteComponentProps{
     //actions 
-    handleAutoLogin: (history: History)=>void
+    autoLogin: (history: History)=>void
     history: History
 }
 
-const HandleAutoLogin: React.FC<HandleAutoLoginProps> = ({history, handleAutoLogin}) => {
-    handleAutoLogin(history)
+const HandleAutoLogin: React.FC<HandleAutoLoginProps> = ({history, autoLogin}) => {
+    autoLogin(history)
     return( 
         <div>
             Logging in

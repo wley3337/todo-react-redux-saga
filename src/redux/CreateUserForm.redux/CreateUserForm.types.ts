@@ -1,3 +1,4 @@
+import { History } from "history";
 
 export const CREATE_USER: string = "CREATE_USER"
 
@@ -8,7 +9,12 @@ export interface createUserFormType {
     password: string 
 }
 
+export interface creatUserFormWithHistory{
+    createUserForm: createUserFormType
+    history: History
+}
+
 export interface createUserAction{
     type: typeof CREATE_USER
-    payload: createUserFormType
+    payload: creatUserFormWithHistory
 }

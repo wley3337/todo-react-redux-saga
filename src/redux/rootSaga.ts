@@ -1,5 +1,5 @@
 import { all } from 'redux-saga/effects';
-import { watchCreateToDo, watchDeleteToDo, watchLoginUser } from './actions';
+import { watchCreateToDo, watchDeleteToDo, watchLoginUser, watchCreateUser, watchCreateList, watchAutoLogin } from './actions';
 
 
 function* helloSaga(){
@@ -12,6 +12,9 @@ export default function* rootSaga(){
         helloSaga(),
         watchCreateToDo(),
         watchDeleteToDo(),
-        watchLoginUser()
+        watchLoginUser(),
+        watchCreateUser(),
+        watchCreateList(),
+        watchAutoLogin(),
     ])
 }

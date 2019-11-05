@@ -6,17 +6,17 @@ import * as css from './CreateListForm.css';
 
 interface CreateListFormProps{
     //actions 
-    handleCreateList: (list: CreateListFormType)=> void
+    createList: (list: CreateListFormType)=> void
 }
 
-const CreateListForm: React.FC<CreateListFormProps> = ({ handleCreateList }) =>{
+const CreateListForm: React.FC<CreateListFormProps> = ({ createList }) =>{
     const initialListFormState = {
         heading: ""
     }
     const [ listForm, updateListForm ] = useState(initialListFormState)
 
     return(
-        <form className={css.wrapper} onSubmit={e => {e.preventDefault(); handleCreateList(listForm) }}>
+        <form className={css.wrapper} onSubmit={e => {e.preventDefault(); createList(listForm) }}>
             <input 
                 value={listForm.heading}
                 onChange={ e => updateListForm({...listForm, heading: e.target.value }) }
