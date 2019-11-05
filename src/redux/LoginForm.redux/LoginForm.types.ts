@@ -1,3 +1,5 @@
+import { History } from "history";
+
 export const LOGIN_USER: string = "LOGIN_USER"
 
 export interface loginFormType{
@@ -5,7 +7,12 @@ export interface loginFormType{
     password: string 
 }
 
-export interface loginUser {
+export interface loginFormAndHistoryType{
+    loginForm: loginFormType
+    history: History
+}
+
+export interface loginUserActionType {
     type: typeof LOGIN_USER,
-    payload: loginFormType
+    payload: loginFormAndHistoryType
 }

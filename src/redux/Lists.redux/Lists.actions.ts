@@ -6,10 +6,12 @@ import { AnyAction } from 'redux';
 import { BASE_URL} from "../actions";
 
 export const setLists = (listsArray:Array<ListType>):listActionTypes =>{
+    
     return{ type: SET_LISTS, payload: listsArray}
 }
 
 export const addListItem =(list: ListType):listActionTypes =>{
+    
     return { type: ADD_LIST_ITEM, payload: [list] }
 }
 

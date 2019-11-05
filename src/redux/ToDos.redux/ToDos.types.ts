@@ -9,14 +9,14 @@ export interface ToDo{
     due?: string
 }
 
-export interface deleteToDoAction{
+export interface DeleteToDoActionType{
     type: typeof DELETE_TO_DO,
     payload: ToDo
 }
 
-export interface CreateToDoAction{
+export interface CreateToDoActionType{
     type: typeof CREATE_TO_DO,
     payload: ToDo
 }
 
-export type CreateToDoActionTypes = CreateToDoAction | deleteToDoAction
+export type ToDoActionTypes = CreateToDoActionType | DeleteToDoActionType

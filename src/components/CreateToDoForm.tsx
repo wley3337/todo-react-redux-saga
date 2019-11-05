@@ -9,12 +9,11 @@ interface CreateToDoFormProps{
     //own props
     listId: number
     //actions
-    handleCreateToDo: (todo:ToDo) => void
     createToDo: (toDo: ToDo) => void
     
 }
 
-const CreateToDoForm: React.FC<CreateToDoFormProps> = ({ handleCreateToDo, listId, createToDo }) =>{
+const CreateToDoForm: React.FC<CreateToDoFormProps> = ({ listId, createToDo }) =>{
     const initialNewToDoState: ToDo = {
         title: "",
         description: "",

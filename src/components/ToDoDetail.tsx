@@ -7,11 +7,12 @@ import * as actions from '../redux/actions'
 
 interface ToDoDetailProps{
     toDo: ToDo
-    handleDeleteToDo: (toDo: ToDo)=> void
+    //actions
+    deleteToDo: (toDo: ToDo) => void
 }
 
 
-const ToDoDetail: React.FC<ToDoDetailProps> = ({toDo, toDo:{title, description, due }, handleDeleteToDo}) =>{
+const ToDoDetail: React.FC<ToDoDetailProps> = ({toDo, toDo:{title, description, due }, deleteToDo}) =>{
     return(
         <div className={css.gridWrapper} >
             <h3 className={css.title}>{ title }</h3>
@@ -19,7 +20,7 @@ const ToDoDetail: React.FC<ToDoDetailProps> = ({toDo, toDo:{title, description, 
                 { description ? <p>{description}</p> : null }
                 { due ? <p>{ moment(due).utc().format("MMM Do") }</p> : null }
             </div>
-            <button onClick={()=> handleDeleteToDo(toDo)}>Delete</button>
+            <button onClick={()=> deleteToDo(toDo)}>Delete</button>
        </div>
     )
 }
