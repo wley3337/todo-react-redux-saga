@@ -3,14 +3,12 @@ import { BASE_URL, setUser, setLists } from "../actions"
 import { put, call, takeEvery } from 'redux-saga/effects'
 import { AUTO_LOGIN, autoLoginActionType } from './HandleAutoLogin.types';
 
-
 export const autoLogin = (history: History):autoLoginActionType =>{
     return{ type: AUTO_LOGIN, payload: history}
 }
 export function* watchAutoLogin(){
     yield takeEvery( AUTO_LOGIN, handleAutoLogin )
 }
-
 
 function* handleAutoLogin(action:autoLoginActionType){
     const history = action.payload

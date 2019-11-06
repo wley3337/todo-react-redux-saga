@@ -3,7 +3,6 @@ import { Route } from 'react-router'
 import Login from '../components/Login'
 import CreateAccount from '../components/CreateAccount'
 
-
 const LandingPage: React.FC = () =>{
     return (
         <div>

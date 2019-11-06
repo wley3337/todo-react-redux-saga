@@ -1,17 +1,17 @@
 import React from 'react';
-import { BrowserRouter as Router, Route} from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import store from '../redux/store';
 import { Provider } from 'react-redux';
 import * as css from './App.css';
-import LandingPage from './LandingPage';
-import Dashboard from './Dashboard';
+import Controller from './Controller';
 
 const App = () => {
+  console.log("App rendered")
   return (
    <Provider store={store}>
-      <Router>
+      <Router> 
         <div className={css.main}>
-          {localStorage.getItem('ToDo-token') ? <Dashboard/> : <Route path="/" component= {LandingPage}/>}
+          <Controller/>
         </div>
       </Router>
    </Provider>
