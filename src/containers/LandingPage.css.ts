@@ -6,3 +6,8 @@ export const grid = style({
     gridTemplateAreas: "'x' 'form' 'y'",
     justifyContent: 'center'
 })
+
+
+export const gaForm = style({
+    gridArea: 'form'
+})

@@ -7,8 +7,10 @@ import * as css from './LandingPage.css'
 const LandingPage: React.FC = () =>{
     return (
         <div className={css.grid}>
-            <Route exact path="/" render={(props) => <Login {...props} gridAreaAssignment="form"/> } />
-            <Route exact path="/create-account" render={(props) => <CreateAccount {...props} gridAreaAssignment="form"/>} />
+            <div className={css.gaForm}>
+                <Route exact path="/" render={(props) => <Login {...props} /> } />
+                <Route exact path="/create-account" render={(props) => <CreateAccount {...props} />} />
+            </div>
         </div>
     )
 }

@@ -24,10 +24,17 @@ export const input = style({
     padding: ".3rem"
 })
 
+
 export const link = style({
+    textAlign: "center",
     display: 'block',
-    marginTop: '.5rem',
-    
+    marginTop: '.8rem',
+    padding: ".5rem",
+    width: "94%",
+    color: "white",
+    fontSize: "1.2rem",
+    borderRadius: ".3rem",
+    borderColor: "#6699CC",
 })
 
 export const button = style({

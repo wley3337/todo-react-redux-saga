@@ -10,19 +10,14 @@ import * as css from './Login.css';
 interface LoginProps extends RouteComponentProps{
     //actions 
     loginUser: (loginForm: loginFormType, history: History) => void
-    gridAreaAssignment?: string
-
-
 }
 
-const Login: React.FC<LoginProps> = ({loginUser, history, gridAreaAssignment}) =>{
+const Login: React.FC<LoginProps> = ({loginUser, history}) =>{
     const loginFormInitialState: loginFormType = {username: "", password: ""}
     const [loginForm, setLoginForm] = useState(loginFormInitialState)
 
-    const style = gridAreaAssignment ? { gridArea: gridAreaAssignment} : { }
-
     return(
-        <div className={css.text} style={style}>
+        <div className={css.text} >
             <form 
                 onSubmit={(e)=>{ e.preventDefault(); loginUser(loginForm, history) }}
                 className={css.form}

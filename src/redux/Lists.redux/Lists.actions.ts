@@ -1,11 +1,14 @@
-import { listActionTypes, SET_LISTS, ListType, ADD_LIST_ITEM, CreateListFormType, CREATE_LIST, CreateListActionTypes } from "./Lists.types";
+import { listActionTypes, SET_LISTS, ListType, ADD_LIST_ITEM, CreateListFormType, CREATE_LIST, CreateListActionTypes, CLEAR_LISTS } from "./Lists.types";
 import { put, call, takeEvery } from 'redux-saga/effects'
 import { BASE_URL} from "../actions";
+import { iSLists } from "./Lists.reducer";
 
 export const setLists = (listsArray:Array<ListType>):listActionTypes =>{
     return{ type: SET_LISTS, payload: listsArray}
 }
-
+export const clearLists = ():listActionTypes =>{
+    return{ type: CLEAR_LISTS, payload: iSLists}
+}
 export const addListItem =(list: ListType):listActionTypes =>{
     return { type: ADD_LIST_ITEM, payload: [list] }
 }
