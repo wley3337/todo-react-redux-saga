@@ -2,7 +2,7 @@ import React from 'react'
 import { AppState } from '../redux/reducer'
 import { connect } from 'react-redux'
 import { UserType } from '../redux/User.redux/User.types'
-import { withRouter } from 'react-router'
+import { withRouter, Redirect } from 'react-router'
 import { Link } from 'react-router-dom'
 import * as actions from '../redux/actions'
 import Boards from './Boards';
@@ -18,6 +18,7 @@ interface DashboardProps{
 const Dashboard: React.FC<DashboardProps> = ({user, logout}) => {
     return(
         <div className ={css.body}>
+            {localStorage.getItem('ToDo-token') ? null : <Redirect to="/" /> }
             <div>
                 <div >
                    <h1 className={css.welcome}>Welcome {user.firstName}</h1>
@@ -26,7 +27,7 @@ const Dashboard: React.FC<DashboardProps> = ({user, logout}) => {
                     </button>
                 </div>  
                 <span className={css.board}>
-                Your Boards:
+                    Your Boards:
                 </span>
             </div>
             <div>

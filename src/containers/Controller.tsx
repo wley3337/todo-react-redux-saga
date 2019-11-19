@@ -18,7 +18,7 @@ const Controller: React.FC<ControllerProps> = ({user}) => {
             (user.firstName === "") ? <Route path="/" component={HandleAutoLogin} /> : null
           : 
             <Route path="/" component= {LandingPage}/> }
-            <Route path="/dashboard" component={Dashboard}/>
+          <Route exact path="/dashboard" component={Dashboard}/> 
         </div>
     )
 }

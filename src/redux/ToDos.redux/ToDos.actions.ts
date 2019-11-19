@@ -129,8 +129,9 @@ function *hCreateToDo (action: CreateToDoActionType){
             const currentLists = lists
             const updatedLists = currentLists.map( list => {
                 if (list.id === newToDo.listId){
-                    list.toDos.push(newToDo)
-                    return list
+                    const newList = {...list}
+                    newList.toDos.push(newToDo)
+                    return newList
                 }else{
                     return list
                 }
@@ -179,9 +180,10 @@ function* hDeleteToDo (action: DeleteToDoActionType){
             const listId = parseInt(resObj.toDoListId)
             const updatedLists = lists.map( list => {
                 if (list.id === listId){
-                    const updatedToDos = list.toDos.filter( toDo => toDo.id !== deletedToDoId)
-                    list.toDos = updatedToDos
-                    return list
+                    const newListObj = {...list}
+                    const updatedToDos = newListObj.toDos.filter( toDo => toDo.id !== deletedToDoId)
+                    newListObj.toDos = updatedToDos
+                    return newListObj
                 }else{
                     return list
                 }
