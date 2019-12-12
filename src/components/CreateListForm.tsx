@@ -24,11 +24,12 @@ const CreateListForm: React.FC<CreateListFormProps> = ({ createList }) => {
       }}
     >
       <input
+        className={css.input}
         value={listForm.heading}
         onChange={e => updateListForm({ ...listForm, heading: e.target.value })}
         placeholder="Name Your List"
       />
-      <input type="submit" value="Create List" />
+      <input className={css.button} type="submit" value="Create List" />
     </form>
   );
 };

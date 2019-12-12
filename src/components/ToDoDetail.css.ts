@@ -1,5 +1,5 @@
 import { style } from "typestyle";
-import { cMauve, cOrchid, cLav, cBlack, cLText } from "../containers/App.css";
+import { cMauve, cOrchid, cBlack } from "../containers/App.css";
 
 export const gridWrapper = style({
   display: "grid",
@@ -21,7 +21,8 @@ export const header = style({
 });
 export const title = style({
   justifySelf: "start",
-  fontSize: "2rem",
+  fontStyle: "italic",
+  fontSize: "1.5rem",
   margin: "0rem"
 });
 

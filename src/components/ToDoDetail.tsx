@@ -25,14 +25,16 @@ const ToDoDetail: React.FC<ToDoDetailProps> = ({
         </button>
       </div>
       <div className={css.description}>
-        {description ? <p>{description}</p> : null}
         {due ? (
           <p>
-            {moment(due)
-              .utc()
-              .format("MMM Do")}
+            Due:
+            {" " +
+              moment(due)
+                .utc()
+                .format("MMM Do")}
           </p>
         ) : null}
+        {description ? <p>{description}</p> : null}
       </div>
     </div>
   );

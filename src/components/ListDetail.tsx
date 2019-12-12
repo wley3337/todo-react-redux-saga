@@ -19,8 +19,12 @@ const ListDetail: React.FC<ListDetailProps> = ({
 }) => {
   return (
     <div className={css.gridWrapper}>
-      <h1 className={css.title}>{heading}</h1>
-      <button onClick={() => deleteList(list)}>Delete List</button>
+      <div className={css.header}>
+        <h1 className={css.title}>{heading}</h1>
+        <button className={css.button} onClick={() => deleteList(list)}>
+          X
+        </button>
+      </div>
       <div className={css.description}>
         {toDos.map(td => (
           <ToDoDetail key={`${heading}-${td.id}-${id}`} toDo={td} />
