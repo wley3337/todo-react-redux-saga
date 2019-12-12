@@ -23,7 +23,7 @@ const CreateToDoForm: React.FC<CreateToDoFormProps> = ({ listId, createToDo }) =
 
     const [newToDo, setNewToDo] = useState(initialNewToDoState)
     return(
-        <form onSubmit ={ e => { e.preventDefault(); createToDo(newToDo)}}>
+        <form onSubmit ={ e => { e.preventDefault(); createToDo(newToDo); setNewToDo(initialNewToDoState)}}>
             <input 
                 type="text"
                 value={newToDo.title}

@@ -1,21 +1,21 @@
-import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import store from '../redux/store';
-import { Provider } from 'react-redux';
-import * as css from './App.css';
-import Controller from './Controller';
+import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+import store from "../redux/store";
+import { Provider } from "react-redux";
+import * as css from "./App.css";
+import Controller from "./Controller";
 
 const App = () => {
-  console.log("App rendered")
+  console.log("App rendered");
   return (
-   <Provider store={store}>
-      <Router> 
+    <Provider store={store}>
+      <Router>
         <div className={css.main}>
-          <Controller/>
+          <Controller />
         </div>
       </Router>
-   </Provider>
+    </Provider>
   );
-}
+};
 
 export default App;
