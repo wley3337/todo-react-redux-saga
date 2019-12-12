@@ -19,17 +19,17 @@ const Dashboard: React.FC<DashboardProps> = ({ user, logout }) => {
   return (
     <div className={css.body}>
       {localStorage.getItem("ToDo-token") ? null : <Redirect to="/" />}
-      <div>
-        <div>
-          <h1 className={css.welcome}>Welcome {user.firstName}</h1>
-          <button onClick={logout} className={css.button}>
-            <Link to="/">Logout</Link>
-          </button>
-        </div>
-        <span className={css.board}>Your Boards:</span>
+      <div className={css.navBar}>
+        <h1 className={css.welcome}>Welcome {user.firstName}</h1>
+        <button onClick={logout} className={css.button}>
+          <Link to="/">Logout</Link>
+        </button>
       </div>
-      <div>
-        <Boards />
+      <div className={css.boardsWrapper}>
+        <div className={css.boardsTitle}>YOUR BOARDS</div>
+        <div className={css.boards}>
+          <Boards />
+        </div>
       </div>
     </div>
   );

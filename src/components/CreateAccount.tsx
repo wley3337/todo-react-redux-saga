@@ -26,7 +26,7 @@ const CreateAccount: React.FC<CreateAccountProps> = ({
     createUserFormInitialState
   );
   return (
-    <div>
+    <React.Fragment>
       <form
         onSubmit={e => {
           e.preventDefault();
@@ -95,7 +95,7 @@ const CreateAccount: React.FC<CreateAccountProps> = ({
       <Link to="/" className={css.link}>
         Back to Sign In
       </Link>
-    </div>
+    </React.Fragment>
   );
 };
 

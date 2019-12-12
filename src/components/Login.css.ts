@@ -1,9 +1,10 @@
 import { style } from "typestyle";
+import { cOrchid, cLav } from "../containers/App.css";
 
 // font-family: 'Nunito Sans', sans-serif;
 
 export const text = style({
-  color: "white",
+  color: cLav,
   fontFamily: "'Nunito Sans', sans-serif",
   fontSize: "2rem"
 });
@@ -18,7 +19,7 @@ export const label = style({
 });
 
 export const input = style({
-  fontWeight: 100,
+  fontWeight: 200,
   display: "block",
   fontSize: "1.2rem",
   padding: ".3rem"
@@ -26,24 +27,19 @@ export const input = style({
 
 export const link = style({
   textAlign: "center",
-  // textDecoration: "none",
   display: "block",
   marginTop: ".8rem",
-  padding: ".5rem",
   width: "94%",
-  color: "white",
-  fontSize: "1.2rem",
-  borderRadius: ".3rem",
-  // backgroundColor: "#FFF",
-  borderColor: "#6699CC"
+  color: cLav,
+  fontSize: "1rem"
 });
 
 export const button = style({
   padding: ".5rem",
   width: "100%",
-  color: "black",
+  color: cLav,
   fontSize: "1rem",
   borderRadius: ".3rem",
-  backgroundColor: "#6699CC",
-  borderColor: "#6699CC"
+  backgroundColor: cOrchid,
+  borderColor: cOrchid
 });

@@ -1,14 +1,15 @@
 import { style } from "typestyle";
+import { cBlack, cMauve } from "../containers/App.css";
 
 export const gridWrapper = style({
   display: "grid",
   gridTemplateRows: "4rem 1fr",
   gridTemplateAreas: " 'title' 'description' ",
-  border: "solid .1rem black",
-  backgroundColor: "#00b2cc",
+  border: `solid .1rem ${cBlack}`,
+  backgroundColor: cBlack,
   padding: "1rem",
   margin: "1rem",
-  filter: "drop-shadow(3mm 2mm 1mm #78909c)"
+  filter: `drop-shadow(2mm 2mm .5mm ${cMauve})`
 });
 
 export const title = style({
@@ -20,5 +21,5 @@ export const title = style({
 
 export const description = style({
   gridArea: "description",
-  backgroundColor: "#FFF"
+  backgroundColor: cMauve
 });

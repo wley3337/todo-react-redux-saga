@@ -18,7 +18,12 @@ const ToDoDetail: React.FC<ToDoDetailProps> = ({
 }) => {
   return (
     <div className={css.gridWrapper}>
-      <h3 className={css.title}>{title}</h3>
+      <div className={css.header}>
+        <h3 className={css.title}>{title}</h3>
+        <button className={css.button} onClick={() => deleteToDo(toDo)}>
+          X
+        </button>
+      </div>
       <div className={css.description}>
         {description ? <p>{description}</p> : null}
         {due ? (
@@ -29,7 +34,6 @@ const ToDoDetail: React.FC<ToDoDetailProps> = ({
           </p>
         ) : null}
       </div>
-      <button onClick={() => deleteToDo(toDo)}>Delete</button>
     </div>
   );
 };

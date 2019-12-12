@@ -7,7 +7,7 @@ import * as css from "./LandingPage.css";
 const LandingPage: React.FC = () => {
   return (
     <div className={css.grid}>
-      <div className={css.gaForm}>
+      <div className={css.content}>
         <Route exact path="/" render={props => <Login {...props} />} />
         <Route
           exact
